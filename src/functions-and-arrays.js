@@ -49,7 +49,6 @@ function sum(mixedArr) {
   let sum = 0;
   for (let num of mixedArr) {
     const isString = typeof num === 'string'
-    const isBoolean = typeof num === 'boolean'
     const isNotSupported = typeof num === 'object'
     if (isNotSupported) {
       throw Error("Unsupported data type sir or ma'am")
@@ -67,7 +66,17 @@ function sum(mixedArr) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() { }
+function averageNumbers(numbersAvg) {
+  const isEmptyArr = numbersAvg.length === 0;
+  if (isEmptyArr) {
+    return null
+  } else {
+    let sum = sumNumbers(numbersAvg)
+    let avg = sum / numbersAvg.length
+    return avg;
+  }
+
+}
 
 
 // Level 2: Array of strings
