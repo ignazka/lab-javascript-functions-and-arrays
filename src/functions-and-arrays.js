@@ -85,7 +85,16 @@ function averageWordLength(wordsArr) {
   }
 }
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  const isEmptyArr = mixedArr.length === 0;
+  if (isEmptyArr) {
+    return null;
+  } else {
+    const result = sum(mixedArr);
+    //toFixed(2) shortens the result to 2 decimals after comma as String. Number() converts to number again
+    return Number((result / mixedArr.length).toFixed(2));
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
