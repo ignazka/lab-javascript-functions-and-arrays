@@ -211,20 +211,20 @@ function greatestProduct(arr) {
   let result = 0;
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length; j++) {
-      let currentProduct2 = 0;
-      let currentProduct1 = 0;
+      let currentProductRow = 0;
+      let currentProductColumn = 0;
       const columnIsNotUndefined = i < arr.length && j + 3 < arr.length;
       if (columnIsNotUndefined) {
-        currentProduct1 = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
+        currentProductColumn = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
       }
       const rowIsNotUndefined = j < arr.length && i + 3 < arr.length;
       if (rowIsNotUndefined) {
-        currentProduct2 = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j];
+        currentProductRow = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j];
       }
-      if (currentProduct1 > currentProduct2 && currentProduct1 > result) {
-        result = currentProduct1;
-      } else if (currentProduct2 > currentProduct1 && currentProduct2 > result) {
-        result = currentProduct2;
+      if (currentProductColumn > currentProductRow && currentProductColumn > result) {
+        result = currentProductColumn;
+      } else if (currentProductRow > currentProductColumn && currentProductRow > result) {
+        result = currentProductRow;
       }
     }
   }
