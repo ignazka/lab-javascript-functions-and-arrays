@@ -207,7 +207,29 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(arr) {
+  let result = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      let currentProduct2 = 0;
+      let currentProduct1 = 0;
+      const columnIsNotUndefined = i < arr.length && j + 3 < arr.length;
+      if (columnIsNotUndefined) {
+        currentProduct1 = arr[i][j] * arr[i][j + 1] * arr[i][j + 2] * arr[i][j + 3];
+      }
+      const rowIsNotUndefined = j < arr.length && i + 3 < arr.length;
+      if (rowIsNotUndefined) {
+        currentProduct2 = arr[i][j] * arr[i + 1][j] * arr[i + 2][j] * arr[i + 3][j];
+      }
+      if (currentProduct1 > currentProduct2 && currentProduct1 > result) {
+        result = currentProduct1;
+      } else if (currentProduct2 > currentProduct1 && currentProduct2 > result) {
+        result = currentProduct2;
+      }
+    }
+  }
+  return result;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
